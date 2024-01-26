@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Earth/earth.glb" type="PackedScene" id=1]
+[ext_resource path="res://Assets/ISS/ISS_stationary.glb" type="PackedScene" id=2]
+[ext_resource path="res://Assets/ISS/ISS_stationary.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Camera.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Earth/earth.gd" type="Script" id=5]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="ISS_stationary" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 33, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="earth" parent="." instance=ExtResource( 1 )]
+transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0 )
+script = ExtResource( 5 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 0 )
+script = ExtResource( 4 )
