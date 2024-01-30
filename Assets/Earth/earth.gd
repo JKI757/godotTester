@@ -4,11 +4,15 @@ extends Spatial
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+const EARTH_TILT_DEGREES = 23.5
+var rotation_speed = 1.0  # Rotation speed in degrees per second
+var tilt_axis = Vector3(0, 0, 1)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	rotate_object_local(tilt_axis, deg2rad(EARTH_TILT_DEGREES))
+ # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,10 +21,13 @@ func _ready():
 
 
 # Rotation speed in degrees per second
-var rotation_speed = 1.0  
+
 
 func _process(delta):
 	# Calculate the rotation amount
+	
+	rotate_y(deg2rad(rotation_speed * delta))
+
 	var rotation_amount = rotation_speed * delta
 	
 	# Update the rotation around the Y-axis (vertical axis)

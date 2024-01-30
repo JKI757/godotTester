@@ -16,7 +16,7 @@ func _ready():
 #	pass
 
 var orbit_radius = 33  # Adjust this based on your scale
-var orbit_speed = 1.0  # Orbit speed, adjust as needed
+var orbit_speed = 0.5  # Orbit speed, adjust as needed
 
 func _process(delta):
 	var angle = orbit_speed * delta
